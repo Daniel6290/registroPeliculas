@@ -1,17 +1,21 @@
 
-package alquilerpeliculas;
+package UI;
+
+import CL.Inventario;
+import CL.RegistroAlquileres;
+import CL.RegistroCliente;
 
 import javax.swing.JOptionPane;
 
 
-public class menuAdmin {
+public class MenuAdmin {
     
     private Inventario inventario;
     private RegistroCliente registroCliente;
     private RegistroAlquileres registroAlquiler;
     
     
-    public menuAdmin(Inventario inventario, RegistroCliente registroCliente, RegistroAlquileres registroAlquiler){
+    public MenuAdmin(Inventario inventario, RegistroCliente registroCliente, RegistroAlquileres registroAlquiler){
         this.inventario = inventario;
         this.registroCliente = registroCliente;
         this.registroAlquiler = registroAlquiler;

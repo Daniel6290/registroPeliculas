@@ -1,12 +1,12 @@
 
-package alquilerpeliculas;
+package UI;
 
 
 public class AlquilerPeliculas {
 
  
     public static void main(String[] args) {
-        menuPrincipal menu = new menuPrincipal();
+        MenuPrincipal menu = new MenuPrincipal();
         menu.mostrarMenu();
         
     }

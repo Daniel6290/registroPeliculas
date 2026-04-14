@@ -1,16 +1,20 @@
 
-package alquilerpeliculas;
+package UI;
+
+import CL.Inventario;
+import CL.RegistroAlquileres;
+import CL.RegistroCliente;
 
 import javax.swing.JOptionPane;
 
-public class menuPrincipal {
+public class MenuPrincipal {
     
     private Inventario inventario;
     private RegistroCliente registroClientes;
     private RegistroAlquileres registroAlquileres;
     
             
-    public menuPrincipal(){
+    public MenuPrincipal(){
         inventario = new Inventario();
         registroClientes = new RegistroCliente (20);
         registroAlquileres = new RegistroAlquileres();
@@ -41,7 +45,7 @@ public class menuPrincipal {
                     registrarCliente();
                     break;
                 case "4":
-                    menuAdmin admin = new menuAdmin(inventario, registroClientes, registroAlquileres);
+                    MenuAdmin admin = new MenuAdmin(inventario, registroClientes, registroAlquileres);
                     admin.adminMenu();
                     break;
                 case "5":

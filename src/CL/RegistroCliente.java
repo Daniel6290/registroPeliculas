@@ -1,19 +1,21 @@
 
-package alquilerpeliculas;
+package CL;
+
+import DataLayer.Cliente;
 
 //ingresar nuevo cliente
 public class RegistroCliente {
-    private cliente [] clientes;
+    private Cliente[] clientes;
     private int cantidad;
     
     public RegistroCliente(int tamaño){
-        clientes = new cliente [tamaño];
+        clientes = new Cliente[tamaño];
         cantidad = 0;
     }
     
     public boolean agregarCliente(String nombre, String documento, String correo, int telefono, int añoNacimiento){
         if (cantidad < clientes.length){
-            cliente nuevo = new cliente(nombre, documento, correo, telefono, añoNacimiento);
+            Cliente nuevo = new Cliente(nombre, documento, correo, telefono, añoNacimiento);
             clientes [cantidad] = nuevo;
             cantidad++;
             return true;
@@ -27,7 +29,7 @@ public class RegistroCliente {
         
   // metodo para buscar cliente por ID
   
-  public cliente buscarID(String documento){
+  public Cliente buscarID(String documento){
       for (int i = 0; i < cantidad; i++ ){
           if (clientes[i].getDocumento().equals(documento) ){
               return clientes[i];
@@ -36,7 +38,7 @@ public class RegistroCliente {
       return null;
      
   }
-  public cliente[] getClientes(){
+  public Cliente[] getClientes(){
       return clientes;
       
   }

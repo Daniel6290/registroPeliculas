@@ -1,25 +1,29 @@
 
-package alquilerpeliculas;
+package DataLayer;
 
 public class Alquiler {
 
-    private cliente cliente;
-    private pelicula pelicula;
+    private Cliente cliente;
+    private Pelicula pelicula;
     private int dias;
     private double costoTotal;
+    private Recibo recibo;
 
-    public Alquiler(cliente cliente, pelicula pelicula, int dias, double costoTotal) {
+    public Alquiler(Cliente cliente, Pelicula pelicula, int dias, double costoTotal) {
         this.cliente = cliente;
         this.pelicula = pelicula;
         this.dias = dias;
         this.costoTotal = costoTotal;
+        this.recibo = new Recibo("REC-" + System.currentTimeMillis(), costoTotal);
     }
 
-    public cliente getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public pelicula getPelicula() {
+    public Recibo getRecibo() { return recibo; }
+
+    public Pelicula getPelicula() {
         return pelicula;
     }
 

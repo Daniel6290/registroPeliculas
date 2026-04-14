@@ -1,4 +1,8 @@
-package alquilerpeliculas;
+package CL;
+
+import DataLayer.Alquiler;
+import DataLayer.Pelicula;
+import DataLayer.Cliente;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
@@ -9,7 +13,7 @@ public class RegistroAlquileres {
 
     public void realizarAlquiler(Inventario inventario, RegistroCliente registroClientes) {
         String documento = JOptionPane.showInputDialog("Ingrese su documento (ID):");
-        cliente cliente = registroClientes.buscarID(documento);
+        Cliente cliente = registroClientes.buscarID(documento);
 
         if (cliente == null) {
             JOptionPane.showMessageDialog(null, "Cliente no registrado. Por favor regístrese primero.");
@@ -18,7 +22,7 @@ public class RegistroAlquileres {
 
         inventario.mostrarPeli();
         String codigoPelicula = JOptionPane.showInputDialog("Ingrese el código de la película a alquilar:");
-        pelicula pelicula = inventario.buscarPorCodigo(codigoPelicula);
+        Pelicula pelicula = inventario.buscarPorCodigo(codigoPelicula);
 
         if (pelicula == null) {
             JOptionPane.showMessageDialog(null, "Película no encontrada.");
@@ -47,10 +51,14 @@ public class RegistroAlquileres {
 
         JOptionPane.showMessageDialog(null,
                 "¡Alquiler exitoso!\n" +
-                "Película: " + pelicula.getTitulo() + "\n" +
-                "Cliente: " + cliente.getNombreCompleto() + "\n" +
-                "Días: " + dias + "\n" +
-                "Total a pagar: ₡" + costo);
+                        "Película: " + pelicula.getTitulo() + "\n" +
+                        "Cliente: " + cliente.getNombreCompleto() + "\n" +
+                        "Días: " + dias + "\n" +
+                        "Total a pagar: ₡" + costo + "\n" +
+                        "------------------------------\n" +
+                        "COMPROBANTE GENERADO :\n" +
+                        "N° Recibo: " + alquiler.getRecibo().getIdRecibo() + "\n" +
+                        "Fecha: " + alquiler.getRecibo().getFechaEmision());
     }
 
     public ArrayList<Alquiler> getListaAlquileres() {
